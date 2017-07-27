@@ -1,0 +1,28 @@
+<h1 [innerText]="title"> </h1>
+<hr>
+<h2 [innerHTML]="subTitle"> </h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Employee Code</th>
+            <th>Employee Name</th>
+            <th>Job Description</th>
+            <th>Address</th>
+            <th>Phone</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of employees">
+            <td><span [innerText]="employee.employeeID"></span></td>
+            <td><span [innerText]="employee.employeeFName|uppercase"></span></td>
+            <td><span [innerText]="employee.jobDescription|lowercase"></span></td>
+            <td><span [innerText]="employee.address|uppercase"></span></td>
+            <td><span [innerText]="employee.phone"></span></td>
+            <td><button class="btn btn-success" (click)="showEmployee(employee)">Shom Details</button></td>
+        </tr>
+    </tbody>
+</table>
+<div *ngIf="selectedEmployee">
+    <employee-detail [employee]="selectedEmployee"></employee-detail>
+</div>

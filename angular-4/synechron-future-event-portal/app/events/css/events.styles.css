@@ -1,0 +1,12 @@
+h1,h2{
+    text-align: center;
+}
+
+h2{
+    color: red
+}
+
+thead{
+    background-color: gray;
+    color:black;
+}

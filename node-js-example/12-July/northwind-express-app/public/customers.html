@@ -1,0 +1,64 @@
+<div class="alert alert-dismissible alert-warning">
+    <h1>Welcome to Customers Home</h1>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Customer ID</th>
+            <th>Contact Name</th>
+            <th>City</th>
+            <th>Show Details</th>
+        </tr>
+    </thead>
+    <tbody id="customersTable">
+
+    </tbody>
+</table>
+<script>
+    function displayCustomer(id) {
+        $(() => {
+            $.ajax({
+                method: 'GET',
+                url: 'http://localhost:8001/api/customers/' + id,
+                contentType: 'application/json'
+            }).done((data) => {
+                console.log(data)
+                let customersTable = $('#customersTable');
+                customer = data
+                //for(let customer of data)
+                {
+                    let row = "<tr><td>" + customer.customerID + "</td><td>" + customer.contactName + "</td><td>" + customer.city + "</td><td><button class='btn btn-info' onClick='displayAllCustomer()' >Back</button></td></tr>"
+                    $("#customersTable").empty();
+                    customersTable.append(row);
+                }
+            }).fail((err) => {
+                console.log(err)
+            })
+        })
+    }
+
+    $(() => {
+        displayAllCustomer()
+    })
+
+    function displayAllCustomer(){
+         $.ajax({
+            method: 'GET',
+            url: 'http://localhost:8001/api/customers',
+            contentType: 'application/json'
+        }).done((data) => {
+            console.log(data);
+            let customersTable = $('#customersTable');
+            $("#customersTable").empty();
+            for (let customer of data) {
+                let row = "<tr><td>" + customer.customerID + "</td><td>" + customer.contactName + "</td><td>" + customer.city + "</td><td><button class='btn btn-info' onClick=displayCustomer('" + customer._id + "')>Show Details</button></td></tr>"
+                customersTable.append(row);
+            }
+        }).fail((err) => {
+            console.log(err)
+        })
+    }
+//"customerID":2,"contactName":"Sameer K","city":"Pune"
+
+</script>

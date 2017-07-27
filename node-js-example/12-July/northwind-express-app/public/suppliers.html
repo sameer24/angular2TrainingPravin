@@ -1,0 +1,129 @@
+<div class="alert alert-dismissible alert-warning">
+    <h1>Welcome to Suppliers Home</h1>
+</div>
+<button class='btn btn-info' onClick='insertSupplier()'>Add Supplier</button>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Suppliers ID</th>
+            <th>Suppliers Name</th>
+        </tr>
+    </thead>
+    <tbody id="suppliersTable">
+
+    </tbody>
+</table>
+<script>
+    function insertSupplier(){
+         let suppliersTable = $('#suppliersTable');
+        $("#suppliersTable").empty();
+        let row = "<tr><td><input type='text' id='supplierID' name='supplierID'/></td><td><input type='text' id='supplierName' name='supplierName'/></td><td><button class='btn btn-info' onClick=saveSupplier('NEW')  >Save</button></td></tr>"
+        suppliersTable.append(row);
+    }
+    function displaySuppliers(id) {
+        $(() => {
+            $.ajax({
+                method: 'GET',
+                url: 'http://localhost:8001/api/suppliers/' + id,
+                contentType: 'application/json'
+            }).done((data) => {
+                console.log(data)
+                let suppliersTable = $('#suppliersTable');
+                supplier = data
+                //for(let customer of data)
+                {
+                    let row = "<tr><td>" + supplier.supplierID + "</td><td>" + supplier.supplierName + "</td><td><button class='btn btn-info' onClick='displayAllSuppliers()' >Back</button></td></tr>"
+                    $("#suppliersTable").empty();
+                    suppliersTable.append(row);
+                }
+            }).fail((err) => {
+                console.log(err)
+            })
+        })
+    }
+    function displayAllSuppliers() {
+        $.ajax({
+            method: 'GET',
+            url: 'http://localhost:8001/api/suppliers',
+            contentType: 'application/json'
+        }).done((data) => {
+            console.log(data);
+            let suppliersTable = $('#suppliersTable');
+            $("#suppliersTable").empty();
+            for (let supplier of data) {
+                let row = "<tr><td>" + supplier.supplierID + "</td><td>" + supplier.supplierName + "</td><td><button class='btn btn-info' onClick=displaySuppliers('" + supplier._id + "')>Show Details</button></td><td><button class='btn btn-info' onClick=deleteSupplier('" + supplier._id + "')>Delete supplier</button></td><td><button class='btn btn-info' onClick=updateSupplier('" + supplier._id + "')>Update Supplier</button></td></tr>"
+                suppliersTable.append(row);
+            }
+        }).fail((err) => {
+            console.log(err)
+        })
+    }
+    function updateSupplier(id) {
+        $(() => {
+            $.ajax({
+                method: 'GET',
+                url: 'http://localhost:8001/api/suppliers/' + id,
+                contentType: 'application/json'
+            }).done((data) => {
+                console.log(data)
+                let suppliersTable = $('#suppliersTable');
+                supplier = data
+                //for(let customer of data)
+                {
+                    let row = "<tr><td><input type='text' value=" + supplier.supplierID + " id='supplierID' name='supplierID'/></td><td><input type='text' value=" + supplier.supplierName + " id='supplierName' name='supplierName'/></td><td><button class='btn btn-info' data-productid='" + supplier._id + "' onClick=saveSupplier('" + supplier._id + "')  >Save</button></td></tr>"
+                    $("#suppliersTable").empty();
+                    suppliersTable.append(row);
+                }
+            }).fail((err) => {
+                console.log(err)
+            })
+        })
+    }
+    function saveSupplier(id) {
+        if (id == 'NEW') {
+            var methodType = 'POST'
+            var Supplier = {
+                supplierID: $('#supplierID').val(),
+                supplierName: $('#supplierName').val()
+            }
+        }else {
+            var methodType = 'PUT'
+            var Supplier = {
+                _id :id,
+                supplierID: $('#supplierID').val(),
+                supplierName: $('#supplierName').val()
+            }
+        }
+        $.ajax({
+            method: methodType,
+            url: 'http://localhost:8001/api/suppliers/' ,
+            data: JSON.stringify(Supplier),
+            contentType: 'application/json',
+            dataType:'json'
+        }).done((data) => {
+            displayAllSuppliers()
+        }).fail((err) => {
+            console.log(err)
+        })
+    }
+
+    function deleteSupplier(id) {
+        if (confirm('Are You Sure')) {
+            $.ajax({
+                method: 'DELETE',
+                url: 'http://localhost:8001/api/suppliers/' + id,
+                contentType: 'application/json'
+            }).done((data) => {
+                displayAllSuppliers()
+            }).fail((err) => {
+                console.log(err)
+            })
+        }
+    }
+
+    $(() => {
+        displayAllSuppliers()
+    })
+//"customerID":2,"contactName":"Sameer K","city":"Pune"
+
+</script>

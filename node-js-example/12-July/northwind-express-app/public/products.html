@@ -1,0 +1,135 @@
+<div class="alert alert-dismissible alert-warning">
+    <h1>Welcome to Products Home</h1>
+</div>
+<button class='btn btn-info' onClick='insertProduct()'>Add Product</button>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Product Name</th>
+        </tr>
+    </thead>
+    <tbody id="productsTable">
+
+    </tbody>
+</table>
+<script>
+    function displayProducts(id) {
+        $(() => {
+            $.ajax({
+                method: 'GET',
+                url: 'http://localhost:8001/api/products/' + id,
+                contentType: 'application/json'
+            }).done((data) => {
+                console.log(data)
+                let productsTable = $('#productsTable');
+                product = data
+                //for(let customer of data)
+                {
+                    let row = "<tr><td>" + product.productID + "</td><td>" + product.productName + "</td><td><button class='btn btn-info' onClick='displayAllProduct()' >Back</button></td></tr>"
+                    $("#productsTable").empty();
+                    productsTable.append(row);
+                }
+            }).fail((err) => {
+                console.log(err)
+            })
+        })
+    }
+
+    function displayAllProduct() {
+        $.ajax({
+            method: 'GET',
+            url: 'http://localhost:8001/api/products',
+            contentType: 'application/json'
+        }).done((data) => {
+            console.log(data);
+            let productsTable = $('#productsTable');
+            $("#productsTable").empty();
+            for (let product of data) {
+                let row = "<tr><td>" + product.productID + "</td><td>" + product.productName + "</td><td><button class='btn btn-info' onClick=displayProducts('" + product._id + "')>Show Details</button></td><td><button class='btn btn-info' onClick=deleteProduct('" + product._id + "')>Delete Product</button></td><td><button class='btn btn-info' onClick=updateProduct('" + product._id + "')>Update Product</button></td></tr>"
+                productsTable.append(row);
+            }
+        }).fail((err) => {
+            console.log(err)
+        })
+    }
+    function updateProduct(id) {
+        $(() => {
+            $.ajax({
+                method: 'GET',
+                url: 'http://localhost:8001/api/products/' + id,
+                contentType: 'application/json'
+            }).done((data) => {
+                console.log(data)
+                let productsTable = $('#productsTable');
+                product = data
+                console.log(data);
+                //for(let customer of data)
+                {
+                    let row = "<tr><td><input type='text' value=" + product.productID + " id='productID' name='productID'/></td><td><input type='text' value=" + product.productName + " id='productName' name='productName'/></td><td><button class='btn btn-info' data-productid='" + product._id + "' onClick=saveProduct('" + product._id + "')  >Save</button></td></tr>"
+                    $("#productsTable").empty();
+                    productsTable.append(row);
+                }
+            }).fail((err) => {
+                console.log(err)
+            })
+        })
+    }
+
+    function insertProduct() {
+        let productsTable = $('#productsTable');
+        $("#productsTable").empty();
+        let row = "<tr><td><input type='text' id='productID' name='productID'/></td><td><input type='text' id='productName' name='productName'/></td><td><button class='btn btn-info' onClick=saveProduct('NEW')  >Save</button></td></tr>"
+        productsTable.append(row);
+    }
+
+    function saveProduct(id) {
+        if (id == 'NEW') {
+            var methodType = 'POST'
+            var Product = {
+                productID: $('#productID').val(),
+                productName: $('#productName').val()
+            }
+        } else {
+            var methodType = 'PUT'
+            var Product = {
+                _id: id,
+                productID: $('#productID').val(),
+                productName: $('#productName').val()
+            }
+        }
+        console.log(JSON.stringify(Product));
+
+        $.ajax({
+            method: methodType,
+            url: 'http://localhost:8001/api/products/',
+            data: JSON.stringify(Product),
+            contentType: 'application/json',
+            dataType: 'json'
+        }).done((data) => {
+            displayAllProduct()
+        }).fail((err) => {
+            console.log(err)
+        })
+    }
+
+    function deleteProduct(id) {
+        if (confirm('Are You Sure')) {
+            $.ajax({
+                method: 'DELETE',
+                url: 'http://localhost:8001/api/products/' + id,
+                contentType: 'application/json'
+            }).done((data) => {
+                displayAllProduct()
+            }).fail((err) => {
+                console.log(err)
+            })
+        }
+    }
+
+    $(() => {
+        displayAllProduct()
+    })
+//"customerID":2,"contactName":"Sameer K","city":"Pune"
+
+</script>

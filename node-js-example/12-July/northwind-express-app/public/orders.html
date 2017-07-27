@@ -1,0 +1,60 @@
+<div class="alert alert-dismissible alert-warning">
+  <h1>Welcome to Orders Home</h1>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Order Name</th>            
+            <th>Product Name</th>            
+        </tr>
+    </thead>
+    <tbody id="ordersTable">
+
+    </tbody>
+</table>
+<script>
+    function displayOrder(id) {
+        $(() => {
+            $.ajax({
+                method: 'GET',
+                url: 'http://localhost:8001/api/orders/' + id,
+                contentType: 'application/json'
+            }).done((data) => {
+                console.log(data[0]);
+                let ordersTable = $('#ordersTable');
+                order = data[0]
+                //for(let customer of data)
+                {
+                    let row = "<tr><td>" + order.orderID + "</td><td>" + order.orderQTY + "</td><td>"+order.productInfo[0].productName+"</td></tr><tr><td><button class='btn btn-info' onClick='displayAllOrders()' >Back</button></td></tr>"
+                    $("#ordersTable").empty();
+                    ordersTable.append(row);
+                }
+            }).fail((err) => {
+                console.log(err)
+            })
+        })
+    }
+    function displayAllOrders(){
+        $.ajax({
+            method:'GET',
+            url:'http://localhost:8001/api/orders',
+            contentType:'application/json'
+        }).done((data)=>{
+            console.log(data);
+            let ordersTable=$('#ordersTable');
+            $("#ordersTable").empty();
+            for(let order of data){
+                let row="<tr><td>"+order.orderID+"</td><td>"+order.orderQTY+"</td><td>"+order.productID+"</td><td><button class='btn btn-info' onClick=displayOrder('" + order._id + "')>Show Details</button></td></tr>"
+                ordersTable.append(row);
+            }
+        }).fail((err)=>{
+            console.log(err)
+        })
+    }
+    $(()=>{
+        displayAllOrders()
+    })
+//"customerID":2,"contactName":"Sameer K","city":"Pune"
+</script>

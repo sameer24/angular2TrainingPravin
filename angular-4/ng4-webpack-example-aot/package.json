@@ -1,0 +1,49 @@
+{
+  "name": "ng4-webpack-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --inline --progress --port 3000",
+    "build": "rimraf dist & webpack --config ./config/webpack.prod.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@angular/animations": "^4.3.1",
+    "@angular/common": "^4.3.1",
+    "@angular/compiler": "^4.3.1",
+    "@angular/compiler-cli": "^4.3.1",
+    "@angular/core": "^4.3.1",
+    "@angular/forms": "^4.3.1",
+    "@angular/http": "^4.3.1",
+    "@angular/platform-browser": "^4.3.1",
+    "@angular/platform-browser-dynamic": "^4.3.1",
+    "@angular/platform-server": "^4.3.1",
+    "@angular/router": "^4.3.1",
+    "core-js": "^2.4.1",
+    "reflect-metadata": "^0.1.10",
+    "rxjs": "^5.4.2",
+    "zone.js": "^0.8.14"
+  },
+  "devDependencies": {
+    "@types/node": "^8.0.15",
+    "angular2-template-loader": "^0.6.2",
+    "awesome-typescript-loader": "^3.2.1",
+    "css-loader": "^0.28.4",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^0.11.2",
+    "html-loader": "^0.4.5",
+    "html-webpack-plugin": "^2.29.0",
+    "null-loader": "^0.1.1",
+    "raw-loader": "^0.5.1",
+    "rimraf": "^2.6.1",
+    "style-loader": "^0.18.2",
+    "to-string-loader": "^1.1.5",
+    "typescript": "^2.3.4",
+    "webpack": "^3.3.0",
+    "webpack-dev-server": "^2.6.1",
+    "webpack-merge": "^4.1.0"
+  }
+}

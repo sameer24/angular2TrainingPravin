@@ -1,0 +1,134 @@
+<div class="alert alert-dismissible alert-warning">
+    <h1>Welcome to Categories Home</h1>
+</div>
+<button class='btn btn-info' onClick='insertCategory()'>Add Category</button>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Categories ID</th>
+            <th colspan="4">Categories Name</th>
+        </tr>
+    </thead>
+    <tbody id="categoriesTable">
+
+    </tbody>
+</table>
+<script>
+    function displayCategorie(id) {
+        $(() => {
+            $.ajax({
+                method: 'GET',
+                url: 'http://localhost:8001/api/categories/' + id,
+                contentType: 'application/json'
+            }).done((data) => {
+                console.log(data)
+                console.log('ssssssss')
+                let categoriesTable = $('#categoriesTable');
+                categorie = data
+                //for(let customer of data)
+                {
+                    let row = "<tr><td>" + categorie.categorierID + "</td><td>" + categorie.categorieName + "</td><td><button class='btn btn-info' onClick='displayAllCategorie()' >Back</button></td></tr>"
+                    $("#categoriesTable").empty();
+                    categoriesTable.append(row);
+                }
+            }).fail((err) => {
+                console.log(err)
+            })
+        })
+    }
+
+    function insertCategory() {
+        let categoriesTable = $('#categoriesTable');
+        $("#categoriesTable").empty();
+        let row = "<tr><td><input type='text' id='categorierID' name='categorierID'/></td><td><input type='text' id='categorieName' name='categorieName'/></td><td><button class='btn btn-info' onClick=saveCategories('NEW')  >Save</button></td></tr>"
+        categoriesTable.append(row);
+    }
+
+    function displayAllCategorie() {
+        $.ajax({
+            method: 'GET',
+            url: 'http://localhost:8001/api/categories',
+            contentType: 'application/json'
+        }).done((data) => {
+            console.log(data);
+            let categoriesTable = $('#categoriesTable');
+            $("#categoriesTable").empty();
+            for (let categorie of data) {
+                let row = "<tr><td>" + categorie.categorierID + "</td><td>" + categorie.categorieName + "</td><td><button class='btn btn-info' onClick=displayCategorie('" + categorie._id + "')>Show Details</button></td><td><button class='btn btn-info' onClick=deleteCategorie('" + categorie._id + "')>Delete Category</button></td><td><button class='btn btn-info' onClick=updateCategorie('" + categorie._id + "')>Update Category</button></td></tr>"
+                categoriesTable.append(row);
+            }
+        }).fail((err) => {
+            console.log(err)
+        })
+    }
+
+    function updateCategorie(id) {
+        $(() => {
+            $.ajax({
+                method: 'GET',
+                url: 'http://localhost:8001/api/categories/' + id,
+                contentType: 'application/json'
+            }).done((data) => {
+                console.log(data)
+                let categoriesTable = $('#categoriesTable');
+                categories = data
+                //for(let customer of data)
+                {
+                    let row = "<tr><td><input type='text' value=" + categories.categorierID + " id='categorierID' name='categorierID'/></td><td><input type='text' value=" + categories.categorieName + " id='categorieName' name='categorieName'/></td><td><button class='btn btn-info' onClick=saveCategories('" + categories._id + "')  >Save</button></td></tr>"
+                    $("#categoriesTable").empty();
+                    categoriesTable.append(row);
+                }
+            }).fail((err) => {
+                console.log(err)
+            })
+        })
+    }
+    function saveCategories(id) {
+        if (id == 'NEW') {
+            var methodType = 'POST';
+            var Categorie = {
+                categorierID: $('#categorierID').val(),
+                categorieName: $('#categorieName').val()
+            }
+        } else {
+            var methodType = 'POST';
+            var Categorie = {
+                _id: id,
+                categorierID: $('#categorierID').val(),
+                categorieName: $('#categorieName').val()
+            }
+        }
+        $.ajax({
+            method: methodType,
+            url: 'http://localhost:8001/api/categories/',
+            data: JSON.stringify(Categorie),
+            contentType: 'application/json',
+            dataType: 'json'
+        }).done((data) => {
+            displayAllCategorie()
+        }).fail((err) => {
+            console.log(err)
+        })
+    }
+
+    function deleteCategorie(id) {
+        if (confirm('Are You Sure')) {
+            $.ajax({
+                method: 'DELETE',
+                url: 'http://localhost:8001/api/categories/' + id,
+                contentType: 'application/json'
+            }).done((data) => {
+                displayAllCategorie()
+            }).fail((err) => {
+                console.log(err)
+            })
+        }
+    }
+
+
+    $(() => {
+        displayAllCategorie()
+    })
+//"customerID":2,"contactName":"Sameer K","city":"Pune"
+
+</script>

@@ -1,0 +1,69 @@
+<h1> New Event Form</h1>
+
+<form class="form-horizontal" [formGroup]="newEvent.eventForm">
+  <fieldset>
+    <legend>Legend</legend>
+    <div class="form-group">
+      <label for="inputEventID" class="col-lg-2 control-label">Event ID</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="inputEventID" name="inputEventID" formControlName="eventID" placeholder="EventID">
+        <div class="alert alert-danger" *ngIf="newEvent.eventForm.controls['eventID'].hasError('required')">Please enter Event ID</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEventcode" class="col-lg-2 control-label">Event Code</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" name="inputEventcode" id="inputEventcode" formControlName="enventCode" placeholder="EventCode">
+        <div class="alert alert-danger" *ngIf="newEvent.eventForm.controls['enventCode'].hasError('required')">Please enter Event Code</div>
+      </div> 
+    </div>
+    <div class="form-group">
+      <label for="inputEventName" class="col-lg-2 control-label">Event Name</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" name="inputEventName" id="inputEventName" formControlName="eventName" placeholder="EventName">
+        <div class="alert alert-danger" *ngIf="newEvent.eventForm.controls['eventName'].hasError('required')">Please enter Event Name</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEventDescription" class="col-lg-2 control-label">Event Description</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" name="inputEventDescription" id="inputEventDescription"  formControlName="description" placeholder="EventDescription">
+        <div class="alert alert-danger" *ngIf="newEvent.eventForm.controls['description'].hasError('required')">Please enter description</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEventstartDate" class="col-lg-2 control-label">Event startDate</label>
+      <div class="col-lg-10">
+        <input type="date" class="form-control" name="inputEventstartDate" id="inputEventstartDate" formControlName="startDate"  placeholder="EventstartDate">
+        <div class="alert alert-danger" *ngIf="newEvent.eventForm.controls['startDate'].hasError('required')">Please enter startDate</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEventendDate" class="col-lg-2 control-label">Event endDate</label>
+      <div class="col-lg-10">
+        <input type="date" class="form-control" name="inputEventendDate"  id="inputEventendDate"  formControlName="endDate" placeholder="EventendDate">
+        <div class="alert alert-danger" *ngIf="newEvent.eventForm.controls['endDate'].hasError('required')">Please enter endDate</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEventtotalRegistration" class="col-lg-2 control-label">Event totalRegistration</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" name="inputEventtotalRegistration" id="inputEventtotalRegistration"  formControlName="totalRegistration"  placeholder="EventtotalRegistration">
+        <div class="alert alert-danger" *ngIf="newEvent.eventForm.controls['totalRegistration'].hasError('required')">Please enter Event totalRegistration</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEventfees" class="col-lg-2 control-label">Event fees</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" name="inputEventfees" id="inputEventfees"  formControlName="fees" placeholder="Eventfees">
+        <div class="alert alert-danger" *ngIf="newEvent.eventForm.controls['fees'].hasError('required')">Please enter Event fees</div>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <button type="button" class="btn btn-default" (click)="insertEvent()" [disabled]="!newEvent.eventForm.valid">Register button</button>        
+      </div>
+    </div>
+  </fieldset>
+</form>

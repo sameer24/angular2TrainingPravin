@@ -1,0 +1,53 @@
+<form class="form-horizontal">
+  <fieldset>
+    <legend>Customer Registration Form</legend>
+    <div class="form-group">
+      <label for="inputCustomerId" class="col-lg-2 control-label">Customer ID</label>
+      <div class="col-lg-10">
+        <input type="number" class="form-control" id="inputCustomerID" placeholder="Enter Customer ID">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputContactName" class="col-lg-2 control-label">Contact Name</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="inputContactName" placeholder="Enter Contact Name">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputCustomerCity" class="col-lg-2 control-label">Customer City</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="inputCustomerCity" placeholder="Enter Customer City">
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <button type="reset" class="btn btn-default">Cancel</button>
+        <button type="button" id="btnRegister" name="btnRegister" class="btn btn-primary">Register Me!</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
+
+<script>
+    $('#btnRegister').click(()=>{
+        let Customer = {
+            customerID:$('#inputCustomerID').val(),
+            contactName:$('#inputContactName').val(),
+            city:$('#inputCustomerCity').val()
+        }
+       // console.log(JSON.stringify(Customer));
+
+        $.ajax({
+            method:'POST',
+            url:'http://localhost:8001/api/customers',
+            data:JSON.stringify(Customer),
+            Contenttype:'application/json',            
+            dataType:'json'
+        }).done(()=>{
+            alert('Data Inserted')
+        }).fail(()=>{
+            alert('Fail')
+        })
+    })
+</script>

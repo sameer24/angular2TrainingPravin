@@ -1,0 +1,25 @@
+<h1>JSON Placeholder User List</h1>
+<hr>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>User name</th>
+            <th>email</th>
+            <th>city</th>
+            <th>zipcode</th>
+            <th>Compamy Name</th>
+            <th>Website</th>            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td [innerText]='user.name'></td>
+            <td [innerText]='user.email'></td>
+            <td [innerText]='user.address.city'></td>
+            <td [innerText]='user.address.zipcode'></td>
+            <td [innerText]='user.company.name'></td>
+            <td><a target="_blank" [href]="'http://'+user.website" [innerText]='user.website'></a></td>
+        </tr>
+    </tbody>
+</table>

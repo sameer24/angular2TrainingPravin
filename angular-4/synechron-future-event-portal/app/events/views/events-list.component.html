@@ -1,0 +1,63 @@
+<h1 [innerText]="title"> </h1>
+<hr>
+<h2 [innerHTML]="subTitle"> </h2>
+<hr>
+<div class="row">
+    <div class="col-md-2">
+        Search Events
+    </div>
+    <div class="col-md-4">
+        <input type="text" name="search" class="form-control" [(ngModel)]="searchLetter">
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        Start With Char
+    </div>
+    <div class="col-md-4">
+        <input type="text" name="searchWith" class="form-control" [(ngModel)]="searchLetterStartsWith">
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        Ends With Char
+    </div>
+    <div class="col-md-4">
+        <input type="text" name="searchEndWith" class="form-control" [(ngModel)]="searchEndsWith">
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        Date Start With
+    </div>
+    <div class="col-md-4">
+        <input type="date" name="searchDate" class="form-control" [(ngModel)]="searchDateStartsWith">
+    </div>
+</div>
+<br>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Event Code</th>
+            <th>Event Name</th>
+            <th>Start Date</th>
+            <th>Fees</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let event of events | filterBy:searchLetter|startsWith:searchLetterStartsWith|endsWith:searchEndsWith|dateStartsWith:searchDateStartsWith'>
+            <td><span [innerText]="event.eventCode|lowercase"></span></td>
+            <td><span [innerText]="event.eventName|uppercase"></span></td>
+            <td><span [innerText]="event.startDate|date:'medium' "></span></td>
+            <td><span [innerText]="event.fees|currency :'INR':true "></span></td>
+            <td><button class="btn btn-info" (click)="sendEventDetails(event)">Show details</button></td>
+        </tr>
+    </tbody>
+</table>
+<div *ngIf="receivedChildMessage">
+    <p>{{receivedChildMessage}}</p>
+</div>
+<div *ngIf="selectedEvent">
+    <event-details [event]="selectedEvent" (sendMessageToParent)="receivedMessage($event)"></event-details>
+</div>
