@@ -51,13 +51,14 @@
             <td><span [innerText]="event.eventName|uppercase"></span></td>
             <td><span [innerText]="event.startDate|date:'medium' "></span></td>
             <td><span [innerText]="event.fees|currency :'INR':true "></span></td>
-            <td><button class="btn btn-info" (click)="sendEventDetails(event)">Show details</button></td>
+            <!--<td><button class="btn btn-info" (click)="sendEventDetails(event)">Show details</button></td>-->
+            <td><button class="btn btn-info" routerLink="/events/{{event.eventID}}">Show details</button></td>
         </tr>
     </tbody>
 </table>
 <div *ngIf="receivedChildMessage">
     <p>{{receivedChildMessage}}</p>
 </div>
-<div *ngIf="selectedEvent">
+<!--<div *ngIf="selectedEvent">
     <event-details [event]="selectedEvent" (sendMessageToParent)="receivedMessage($event)"></event-details>
-</div>
+</div> -->

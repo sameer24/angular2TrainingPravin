@@ -18,6 +18,8 @@ var json_placeholder_module_1 = require("./jsonplaceholder/json-placeholder.modu
 var employee_module_1 = require("./employee/employee.module");
 var parent_child_module_1 = require("./parent-child-communication/parent-child.module");
 var home_module_1 = require("./home/home.module");
+var header_component_1 = require("./navigation/components/header.component");
+var app_routing_1 = require("./app.routing");
 //Decorator
 var AppModule = (function () {
     /**
@@ -35,8 +37,8 @@ AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule,
             forms_1.ReactiveFormsModule, events_module_1.EventsModule, json_placeholder_module_1.JsonPlaceHolderModule, employee_module_1.EmployeeModule, parent_child_module_1.ParentChildModule,
-            home_module_1.HomeModule],
-        declarations: [app_component_1.AppComponent],
+            home_module_1.HomeModule, app_routing_1.rounting],
+        declarations: [app_component_1.AppComponent, header_component_1.HeaderComponent],
         providers: [common_1.DatePipe],
         bootstrap: [app_component_1.AppComponent],
         exports: []

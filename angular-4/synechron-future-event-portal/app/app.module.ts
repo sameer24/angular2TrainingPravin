@@ -12,13 +12,16 @@ import { JsonPlaceHolderModule } from "./jsonplaceholder/json-placeholder.module
 import { EmployeeModule } from "./employee/employee.module";
 import { ParentChildModule } from "./parent-child-communication/parent-child.module";
 import { HomeModule } from "./home/home.module";
+import { HeaderComponent } from "./navigation/components/header.component";
+
+import { rounting } from "./app.routing";
 
 //Decorator
 @NgModule({
     imports: [BrowserModule, FormsModule, HttpModule, 
     ReactiveFormsModule,EventsModule,JsonPlaceHolderModule,EmployeeModule,ParentChildModule,
-    HomeModule],
-    declarations: [AppComponent],
+    HomeModule,rounting],
+    declarations: [AppComponent,HeaderComponent],
     providers: [DatePipe],
     bootstrap: [AppComponent],
     exports: []
