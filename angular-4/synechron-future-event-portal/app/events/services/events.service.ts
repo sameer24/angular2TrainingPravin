@@ -24,6 +24,10 @@ export class EventsService{
        }).map(res => res.json());
     }
 
+    getSingleEvent(id:string):Observable<Events> {
+        console.log(id)
+       return this._http.get("http://localhost:8055/api/events/"+id).map(res => res.json());
+    }
 
     private events: Events[];
     /* = [

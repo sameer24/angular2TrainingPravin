@@ -10,6 +10,7 @@ var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
 var forms_1 = require("@angular/forms");
 var common_2 = require("@angular/common");
+var router_1 = require("@angular/router");
 var events_list_component_1 = require("./components/events-list.component");
 var events_details_component_1 = require("./components/events-details.component");
 var new_event_component_1 = require("./components/new-event.component");
@@ -28,7 +29,7 @@ var EventsModule = (function () {
 }());
 EventsModule = __decorate([
     core_1.NgModule({
-        imports: [common_1.CommonModule, forms_1.FormsModule, forms_1.ReactiveFormsModule],
+        imports: [router_1.RouterModule, common_1.CommonModule, forms_1.FormsModule, forms_1.ReactiveFormsModule],
         exports: [events_list_component_1.EventsListComponent, new_event_component_1.NewEventComponent],
         declarations: [events_list_component_1.EventsListComponent, events_details_component_1.EventsDetailsComponent, first_letter_capital_pipe_1.FirstLetterCapitalPipe, filter_by_pipe_1.FilterByPipe,
             start_with_pipe_1.StartsWith, ends_with_pipe_1.EndsWith,

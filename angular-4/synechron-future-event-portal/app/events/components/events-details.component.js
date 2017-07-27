@@ -11,13 +11,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var events_1 = require("../models/events");
+var router_1 = require("@angular/router");
+var events_service_1 = require("../services/events.service");
 var EventsDetailsComponent = (function () {
-    function EventsDetailsComponent() {
+    function EventsDetailsComponent(_EventsService, _route) {
+        this._EventsService = _EventsService;
+        this._route = _route;
         this.sendMessageToParent = new core_1.EventEmitter();
         //this.event = new Events(1,'SYNQ3',' JQUERY 3','Introduction to ', new Date(),new Date(),100, 50, 'images/jquery.png')
     }
     EventsDetailsComponent.prototype.raiseEvent = function () {
         this.sendMessageToParent.emit('This message is sent by child');
+    };
+    EventsDetailsComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        var id;
+        this._route.params.subscribe(function (params) { return id = params["id"]; });
+        this._EventsService.getSingleEvent(id).subscribe(function (data) {
+            _this.selectedEvent = data;
+        });
     };
     return EventsDetailsComponent;
 }());
@@ -35,7 +47,7 @@ EventsDetailsComponent = __decorate([
         templateUrl: 'app/events/views/envents-details.component.html',
         styleUrls: ['app/events/css/events.styles.css'],
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [events_service_1.EventsService, router_1.ActivatedRoute])
 ], EventsDetailsComponent);
 exports.EventsDetailsComponent = EventsDetailsComponent;
 //# sourceMappingURL=events-details.component.js.map

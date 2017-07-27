@@ -52,7 +52,7 @@
             <td><span [innerText]="event.startDate|date:'medium' "></span></td>
             <td><span [innerText]="event.fees|currency :'INR':true "></span></td>
             <!--<td><button class="btn btn-info" (click)="sendEventDetails(event)">Show details</button></td>-->
-            <td><button class="btn btn-info" routerLink="/events/{{event.eventID}}">Show details</button></td>
+            <td><button class="btn btn-info" routerLink="/events/{{event._id}}">Show details</button></td>
         </tr>
     </tbody>
 </table>

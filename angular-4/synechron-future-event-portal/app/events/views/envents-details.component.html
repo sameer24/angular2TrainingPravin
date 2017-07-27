@@ -1,42 +1,42 @@
-<h1>{{title}}{{event.eventName}}</h1>
 <hr>
+<button class="btn btn-info" routerLink="/events">Back</button>
 <button class="btn btn-info" (click)="raiseEvent()">RaiseEnent</button>
 <table class="table">
     <tr>
         <th>Event ID</th>
-        <td><span [innerText]="event.eventID"></span></td>
+        <td><span [innerText]="selectedEvent.eventID"></span></td>
     </tr>
     <tr>
         <th>Event Code</th>
-        <td><span [innerText]="event.eventCode|lowercase"></span></td>
+        <td><span [innerText]="selectedEvent.eventCode|lowercase"></span></td>
     </tr>
     <tr>
         <th>Event Name</th>
-        <td><span [innerText]="event.eventName"></span></td>
+        <td><span [innerText]="selectedEvent.eventName"></span></td>
     </tr>
     <tr>
         <th>Description</th>
-        <td><span [innerText]="event.description|firstLetterCapital"></span></td>
+        <td><span [innerText]="selectedEvent.description|firstLetterCapital"></span></td>
     </tr>
     <tr>
         <th>start Date</th>
-        <td><span [innerText]="event.startDate|date"></span></td>
+        <td><span [innerText]="selectedEvent.startDate|date"></span></td>
     </tr>
     <tr>
         <th>End Date</th>
-        <td><span [innerText]="event.endDate|date"></span></td>
+        <td><span [innerText]="selectedEvent.endDate|date"></span></td>
     </tr>
     <tr>
         <th>Fees</th>
-        <td><span [innerText]="event.fees"></span></td>
+        <td><span [innerText]="selectedEvent.fees"></span></td>
     </tr>
     <tr>
         <th>Total Registration</th>
         <td>
             <div class="progress progress-striped active">
-                <div class="progress-bar" [style.width]="event.totalRegistration+'%'" 
-                [title]="event.totalRegistration+'%'"
-                >{{event.totalRegistration+'%'}}</div>
+                <div class="progress-bar" [style.width]="selectedEvent.totalRegistration+'%'" 
+                [title]="selectedEvent.totalRegistration+'%'"
+                >{{selectedEvent.totalRegistration+'%'}}</div>
                 
             </div>
             </td>
@@ -44,7 +44,7 @@
     <tr>
         <th>Logo</th>
         <td>
-            <img [src]="event.logo" alt="" class="src" [title]="event.title">
+            <img [src]="selectedEvent.logo" alt="" class="src" [title]="selectedEvent.title">
         </td>
     </tr>
 </table>

@@ -26,6 +26,10 @@ var EventsService = (function () {
             headers: this.headers
         }).map(function (res) { return res.json(); });
     };
+    EventsService.prototype.getSingleEvent = function (id) {
+        console.log(id);
+        return this._http.get("http://localhost:8055/api/events/" + id).map(function (res) { return res.json(); });
+    };
     return EventsService;
 }());
 EventsService = __decorate([

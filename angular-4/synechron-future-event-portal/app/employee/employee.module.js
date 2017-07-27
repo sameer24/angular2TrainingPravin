@@ -10,6 +10,7 @@ var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
 var employee_list_component_1 = require("./components/employee-list.component");
 var employee_details_components_1 = require("./components/employee-details.components");
+var router_1 = require("@angular/router");
 var EmployeeModule = (function () {
     function EmployeeModule() {
     }
@@ -17,7 +18,7 @@ var EmployeeModule = (function () {
 }());
 EmployeeModule = __decorate([
     core_1.NgModule({
-        imports: [common_1.CommonModule],
+        imports: [router_1.RouterModule, common_1.CommonModule],
         exports: [employee_list_component_1.EmployeeListComponent, employee_details_components_1.EmployeeDetailsComponent],
         declarations: [employee_list_component_1.EmployeeListComponent, employee_details_components_1.EmployeeDetailsComponent],
         providers: [],
