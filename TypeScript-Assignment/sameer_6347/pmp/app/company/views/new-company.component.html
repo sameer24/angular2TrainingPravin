@@ -1,0 +1,77 @@
+<h2 [innerHTML]="title"></h2>
+
+<form class="form-horizontal" [formGroup]="newCompany.companyForm" *ngIf="newCompany">
+  <fieldset>
+    <legend>Add Company</legend>
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <button type="Button" (click)="insertEvent()" class="btn btn-primary" [disabled]="!newCompany.companyForm.valid">Save Record</button>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="inputcompanyId" class="col-lg-2 control-label">Id</label>
+      <div class="col-lg-10">
+        <input type="number" class="form-control" id="inputcompanyId" name="inputcompanyId" formControlName="companyId">
+        <div class="alert alert-danger" *ngIf="newCompany.companyForm.controls['companyId'].hasError('required')">Please Enter Event Id</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="inputcompanyCode" class="col-lg-2 control-label">Code</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="inputcompanyCode" name="inputcompanyCode" formControlName="companyCode" >
+        <div class="alert alert-danger" *ngIf="newCompany.companyForm.controls['companyCode'].hasError('required')">Please Enter Event Code</div>       
+        <div class="alert alert-danger" *ngIf="newCompany.companyForm.controls['companyCode'].hasError('minlength')">Please Enter Minimin 3 Char</div>
+        <div class="alert alert-danger" *ngIf="newCompany.companyForm.controls['companyCode'].hasError('maxlength')">Please Enter Max 5 Char</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="inputName" class="col-lg-2 control-label">Name</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="inputName" name="inputName" formControlName="name" >
+        <div class="alert alert-danger" *ngIf="newCompany.companyForm.controls['name'].hasError('required')">Please Enter Event Name</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="inputaddress" class="col-lg-2 control-label">Company Address</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="inputaddress" name="inputaddress" formControlName="address" >
+        <div class="alert alert-danger" *ngIf="newCompany.companyForm.controls['address'].hasError('required')">Please Enter Address</div>
+
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="inputcity" class="col-lg-2 control-label">Company City</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="inputcity" name="inputcity" formControlName="city" >
+        <div class="alert alert-danger" *ngIf="newCompany.companyForm.controls['city'].hasError('required')">Please Enter city</div>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label for="inputcontact" class="col-lg-2 control-label">Contact</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="inputcontact" name="inputcontact" formControlName="contact"
+          >
+        <div class="alert alert-danger" *ngIf="newCompany.companyForm.controls['contact'].hasError('required')">Please Enter Contact</div>
+      </div>
+    </div>
+
+
+<div class="form-group">
+      <label for="inputemail" class="col-lg-2 control-label">Email</label>
+      <div class="col-lg-10">
+        <input type="email" class="form-control" id="inputemail" name="inputemail" formControlName="email"
+          >
+        <div class="alert alert-danger" *ngIf="newCompany.companyForm.controls['email'].hasError('required')">Please Enter Email</div>
+      </div>
+    </div>
+
+
+  </fieldset>
+</form>

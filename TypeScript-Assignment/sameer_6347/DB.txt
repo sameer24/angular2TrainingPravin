@@ -1,0 +1,86 @@
+db.getCollection('bugs').insert(
+{
+    "_id" : ObjectId("597b2ed65cc3600ca8a34fd7"),
+    "id" : 1.0,
+    "name" : "bug name",
+    "title" : "bug name",
+    "description" : "bug name",
+    "status" : "bug.status",
+    "assignedTo" : "bug.assignedTo",
+    "startDate" : ISODate("2017-07-28T12:32:22.044Z"),
+    "endDate" : ISODate("2017-07-28T12:32:22.044Z")
+}
+)
+
+db.getCollection('companies').insert({
+    "_id" : ObjectId("597ae6acfc4a334910ce6733"),
+    "companyId" : 2,
+    "companyCode" : "Cmp2",
+    "name" : "Synechron",
+    "address" : "123",
+    "city" : "123",
+    "contact" : "13",
+    "email" : "bb@bb.com",
+    "image" : "images/noimage.png",
+    "CompanyId" : null,
+    "CompanyName" : null,
+    "Description" : null,
+    "Logo" : null
+})
+db.getCollection('employees').insert(
+{
+    "_id" : ObjectId("597adfe3376e0a65f8dc90f1"),
+    "employeeId" : "0002",
+    "employeeCode" : "SYN",
+    "name" : "sameer",
+    "address" : "kelkar",
+    "city" : "Pune",
+    "contact" : "32232323",
+    "email" : "b@b.com",
+    "designation" : "4564",
+    "rating" : "456",
+    "image" : "images/noimage.png"
+}
+)
+
+db.getCollection('projects').insert(
+{
+    "_id" : ObjectId("5975b1fb5cc3600ca8a34fcd"),
+    "projectId" : "abc",
+    "projectCode" : "Abc Project Name",
+    "Description" : "Project Description for ABC",
+    "startDate" : ISODate("2016-12-12T08:42:00.000Z"),
+    "endDate" : ISODate("2018-07-24T08:38:19.760Z"),
+    "completionPercentage" : 10.0,
+    "projectGroup" : "SYN"
+}
+)
+
+db.getCollection('tasks').insert(
+{
+    "_id" : ObjectId("5975b3885cc3600ca8a34fce"),
+    "id" : 1.0,
+    "name" : "Task for Project A",
+    "title" : "Title",
+    "description" : "Description for Project A",
+    "UserStoryId" : "UT-1",
+    "status" : "O",
+    "startDate" : ISODate("2017-07-24T08:44:56.182Z"),
+    "endDate" : ISODate("2017-07-24T08:44:56.182Z"),
+    "AssignedToEmp" : 1.0
+}
+)
+
+db.getCollection('userStories').insert(
+{
+    "_id" : ObjectId("597afdbb5cc3600ca8a34fd6"),
+    "id" : "123",
+    "name" : "123",
+    "title" : "123",
+    "description" : "123",
+    "status" : "123",
+    "assignedTo" : "123",
+    "startDate" : ISODate("2017-07-28T09:02:51.389Z"),
+    "endDate" : ISODate("2017-07-28T09:02:51.389Z")
+}
+)

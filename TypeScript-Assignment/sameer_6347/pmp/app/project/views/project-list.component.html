@@ -1,0 +1,41 @@
+<h1 [innerText]="title"></h1>
+<hr>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Group</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Details</th>
+            <th>Percentage</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--<tr>
+            <td> </td>
+            <td> <input type="text" name="search" class="form-control" [(ngModel)]="searchLetterContains"></td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>-->
+        <tr *ngFor="let obj of projects">
+            <td><span [innerText]="obj.projectId"></span></td>
+            <td><span [innerText]="obj.projectCode | uppercase"></span></td>
+            <td><span [innerText]="obj.projectGroup"></span></td>
+            <td><span [innerText]="obj.startDate|date"></span></td>
+            <td><span [innerText]="obj.endDate|date"></span></td>
+            <td><span [innerText]="obj.completionPercentage"></span></td>
+            <td><button class="btn btn-info" routerLink="/project/{{obj._id}}">Details</button></td>
+            <td><button class="btn btn-info" (click)="delete(obj._id)">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<!--<div *ngIf="id">
+    <project-details [id]="id"></project-details>
+</div>-->

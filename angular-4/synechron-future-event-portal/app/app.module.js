@@ -13,11 +13,11 @@ var common_1 = require("@angular/common");
 var http_1 = require("@angular/http");
 //Components import
 var app_component_1 = require("./app.component");
-var events_module_1 = require("./events/events.module");
-var json_placeholder_module_1 = require("./jsonplaceholder/json-placeholder.module");
-var employee_module_1 = require("./employee/employee.module");
-var parent_child_module_1 = require("./parent-child-communication/parent-child.module");
-var home_module_1 = require("./home/home.module");
+// import { EventsModule } from "./events/events.module";
+// import { JsonPlaceHolderModule } from "./jsonplaceholder/json-placeholder.module";
+// import { EmployeeModule } from "./employee/employee.module";
+// import { ParentChildModule } from "./parent-child-communication/parent-child.module";
+// import { HomeModule } from "./home/home.module";
 var header_component_1 = require("./navigation/components/header.component");
 var app_routing_1 = require("./app.routing");
 //Decorator
@@ -36,8 +36,7 @@ var AppModule = (function () {
 AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule,
-            forms_1.ReactiveFormsModule, events_module_1.EventsModule, json_placeholder_module_1.JsonPlaceHolderModule, employee_module_1.EmployeeModule, parent_child_module_1.ParentChildModule,
-            home_module_1.HomeModule, app_routing_1.rounting],
+            forms_1.ReactiveFormsModule, app_routing_1.rounting],
         declarations: [app_component_1.AppComponent, header_component_1.HeaderComponent],
         providers: [common_1.DatePipe],
         bootstrap: [app_component_1.AppComponent],

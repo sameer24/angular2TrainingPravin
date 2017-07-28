@@ -11,6 +11,7 @@ var common_1 = require("@angular/common");
 var jph_posts_components_1 = require("./components/jph-posts.components");
 var jph_users_components_1 = require("./components/jph-users.components");
 var jph_posts_service_1 = require("./services/jph.posts.service");
+var json_routing_1 = require("./json.routing");
 var JsonPlaceHolderModule = (function () {
     function JsonPlaceHolderModule() {
     }
@@ -18,7 +19,7 @@ var JsonPlaceHolderModule = (function () {
 }());
 JsonPlaceHolderModule = __decorate([
     core_1.NgModule({
-        imports: [common_1.CommonModule],
+        imports: [json_routing_1.jphRouting, common_1.CommonModule],
         exports: [jph_posts_components_1.JphPostComponent, jph_users_components_1.JphUserComponent],
         declarations: [jph_posts_components_1.JphPostComponent, jph_users_components_1.JphUserComponent],
         providers: [jph_posts_service_1.JphPostsService],

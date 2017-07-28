@@ -8,9 +8,10 @@ import { JphPostsService } from "./services/jph.posts.service";
 import { DatePipe } from '@angular/common';
 import { HttpModule } from '@angular/http';
 
+import { jphRouting } from "./json.routing";
 
 @NgModule({
-    imports: [CommonModule],
+    imports: [jphRouting,CommonModule],
     exports: [JphPostComponent, JphUserComponent],
     declarations: [JphPostComponent, JphUserComponent],
     providers: [JphPostsService],

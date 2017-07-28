@@ -1,0 +1,1 @@
+{"version":3,"file":"employee.routing.js","sourceRoot":"","sources":["employee.routing.ts"],"names":[],"mappings":";;AACA,0CAAuD;AAGvD,gFAA6E;AAC7E,wFAAoF;AAGpF,IAAM,mBAAmB,GAAW;IAChC;QACI,IAAI,EAAE,EAAE;QACR,SAAS,EAAE,+CAAqB;KACnC;IACD;QACI,IAAI,EAAE,KAAK;QACX,SAAS,EAAE,sDAAwB;KACtC;CAEJ,CAAA;AAEY,QAAA,eAAe,GAAwB,qBAAY,CAAC,QAAQ,CAAC,mBAAmB,CAAC,CAAC"}

@@ -1,0 +1,53 @@
+<h2 [innerText]="title"></h2>
+
+
+<button class="btn btn-info" routerLink="/newemployee">Add New</button>
+
+<hr>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Employee Code</th>
+            <th>Employee Name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>Contact</th>
+            <th>Email</th>
+            <th>Designation</th>
+            <th>Image</th>
+            <th>Details</th>
+            <th>Delete</th>
+        </tr>
+
+    </thead>
+    <tbody>
+        <!--<tr>
+            <td> </td>
+            <td> <input type="text" name="search" class="form-control" [(ngModel)]="searchLetterContains"></td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>-->
+        <tr *ngFor="let emp of employees">
+            <td><span [innerText]="emp.employeeCode"></span></td>
+            <td><span [innerText]="emp.name"></span></td>
+            <td><span [innerText]="emp.address"></span></td>
+            <td><span [innerText]="emp.city"></span></td>
+            <td><span [innerText]="emp.contact"></span></td>
+            <td><span [innerText]="emp.email"></span></td>
+            <td><span [innerText]="emp.designation"></span></td>
+            <td> <img [src]="emp.image" [alt]="emp.name" [title]="emp.name"></td>
+            <td><button class="btn btn-info" routerLink="/employee/{{emp._id}}">Details</button></td>
+            <td><button class="btn btn-info" (click)="delete(emp._id)">Delete</button></td>
+            <td><button class="btn btn-info" routerLink="/newemployee/{{emp._id}}">Edit</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<div *ngIf="id">
+    <employee-details [id]="id"></employee-details>
+</div>

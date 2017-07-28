@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "outDir": "dist",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "noEmitOnError": true
+    },
+    "files": [
+    "main.ts"
+    ]
+}

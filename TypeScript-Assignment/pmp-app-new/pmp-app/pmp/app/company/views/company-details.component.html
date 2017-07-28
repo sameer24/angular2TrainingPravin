@@ -1,0 +1,34 @@
+<h2 [innerText]="title" *ngIf="company"></h2>
+
+
+<table class="table" *ngIf="company">
+    <tr>
+        <th>Name</th>
+        <td><span [innerText]="company.name"></span></td>
+    </tr>
+    <tr>
+        <th>Address</th>
+        <td><span [innerText]="company.address"></span></td>
+    </tr>
+    <tr>
+        <th>City</th>
+        <td><span [innerText]="company.city"></span></td>
+    </tr>
+    <tr>
+        <th>Contact</th>
+        <td><span [innerText]="company.contact"></span></td>
+    </tr>
+    <tr>
+        <th>Email</th>
+        <td><span [innerText]="company.email"></span></td>
+    </tr>
+    <tr>
+        <th>Logo</th>
+        <td>
+            <img [src]="company.image" [alt]="company.name" [title]="company.name">
+        </td>
+    </tr>
+</table>
+
+
+<button class="btn btn-info" routerLink="/company/">Back</button>

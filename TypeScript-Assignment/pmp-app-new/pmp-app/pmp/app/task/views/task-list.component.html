@@ -1,0 +1,43 @@
+<h1 [innerText]="title"></h1>
+<hr>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Status</th>
+            <th>Details</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--<tr>
+            <td> </td>
+            <td> <input type="text" name="search" class="form-control" [(ngModel)]="searchLetterContains"></td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>-->
+        <tr *ngFor="let obj of tasks ">
+            <td><span [innerText]="obj.id"></span></td>
+            <td><span [innerText]="obj.name | uppercase"></span></td>
+            <td><span [innerText]="obj.title"></span></td>
+            <td><span [innerText]="obj.description"></span></td>
+            <td><span [innerText]="obj.startDate|date"></span></td>
+            <td><span [innerText]="obj.endDate|date"></span></td>
+            <td><span [innerText]="obj.status"></span></td>
+            <td><button class="btn btn-info" routerLink="/task/{{obj._id}}" >Details</button></td>
+            <td><button class="btn btn-info" (click)="delete(obj._id)">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<div *ngIf="id">
+    <task-details [id]="id"></task-details>
+</div>

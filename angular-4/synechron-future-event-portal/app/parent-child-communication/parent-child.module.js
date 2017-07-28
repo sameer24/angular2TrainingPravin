@@ -10,6 +10,7 @@ var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
 var parent_component_1 = require("./compononents/parent.component");
 var child_component_1 = require("./compononents/child.component");
+var parent_child_routing_1 = require("./parent-child.routing");
 var ParentChildModule = (function () {
     function ParentChildModule() {
     }
@@ -17,7 +18,7 @@ var ParentChildModule = (function () {
 }());
 ParentChildModule = __decorate([
     core_1.NgModule({
-        imports: [common_1.CommonModule],
+        imports: [common_1.CommonModule, parent_child_routing_1.parentRouting],
         exports: [parent_component_1.ParentComponent],
         declarations: [parent_component_1.ParentComponent, child_component_1.ChildComponent],
         providers: [],

@@ -1,0 +1,26 @@
+<project root>
+src
+	app
+		app.component.ts
+		app.module.ts
+		app-routing.module.ts
+	employee
+		components	
+			employee-list.component.ts
+			employee-detail.ts
+		css
+			employee.css
+		views
+		
+		model
+		
+		pipe
+		
+		services
+			
+		
+main.ts
+images
+index.html
+shared<common for all>
+	common-style.css

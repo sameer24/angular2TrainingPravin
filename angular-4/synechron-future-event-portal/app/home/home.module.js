@@ -7,6 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var home_routing_1 = require("./home.routing");
 var home_components_1 = require("./components/home.components");
 var HomeModule = (function () {
     function HomeModule() {
@@ -15,7 +16,7 @@ var HomeModule = (function () {
 }());
 HomeModule = __decorate([
     core_1.NgModule({
-        imports: [],
+        imports: [home_routing_1.homeRouting],
         exports: [home_components_1.HomeComponent],
         declarations: [home_components_1.HomeComponent],
         providers: [],

@@ -1,16 +1,16 @@
 import { Component,Input,OnChanges } from "@angular/core";
 
-import { Employee } from "../models/employee";
+import { Bug } from "../models/bug";
 
 
 @Component({
-    selector:'employee-detail',
-    templateUrl:'app/employee/views/employee-details.component.html',
-    styleUrls:['app/employee/css/employee.styles.css']
+    selector:'bug-detail',
+    templateUrl:'app/bug/views/bug-details.component.html',
+    styleUrls:['app/bug/css/bug.styles.css']
 })
 
 export class EmployeeDetailsComponent implements OnChanges{
-    title:'Employee Details';
+    title:'bug Details';
     showDetail:boolean
     constructor(){
          //this.employee = new Employee(1,'Sameer','Kelkar ', 'Job Desc','Address','123456789', new Date(),new Date(),100, 50, 'images/node.png',10)         
@@ -20,5 +20,5 @@ export class EmployeeDetailsComponent implements OnChanges{
          this.showDetail=true;
     }
     
-    @Input() employee: Employee;
+    @Input() bug: Bug;
 }

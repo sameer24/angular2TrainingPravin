@@ -1,9 +1,9 @@
 
-export class Employee{
-    constructor(public employeeID?:number,public employeeFName?:string, public eventLName?:string, 
-    public jobDescription?:string,public address?:string, public phone?:string, public birthDate?:Date,
-    public joiningDate?:Date,public bankAccountNumber?:number, public pfNumber?:number,public photo?: string, 
-    public rating?:number){
+export class Task {
+    constructor(
+        public TaskID?: number, public Title?: string, public Description?: string,
+        public UserStoryId?: string, public Status?: string, public TaskStartDate?: Date, public TaskUpdatedDate?: Date,
+        public AssignedToEmp?: string) {
 
     }
 }

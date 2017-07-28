@@ -1,0 +1,39 @@
+PMP : Project Management Portal
+-------------------------------------
+All Names in Camel Case;
+
+Companies:
+            CompanyId,
+            CompanyName,
+            Description,
+            Logo
+
+Project:
+            ProjectId,
+            Name,
+            Description,
+            [CompanyId]
+
+Employees:
+            EmpoyeeId,
+            Name,
+            Contact,
+            Email,
+            [ProjectId]
+
+UserStories:
+            UserStoriesId,
+            Title,
+            Description,
+            [ProjectId]
+
+Tasks:  
+            TaskId,
+            Title,
+            Description,
+            [UserStoriesId]
+
+Bugs:       BugsId,
+            Title,
+            Description,
+            [UserStoriesId]

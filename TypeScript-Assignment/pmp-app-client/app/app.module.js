@@ -13,23 +13,23 @@ var common_1 = require("@angular/common");
 var http_1 = require("@angular/http");
 //Components import
 var app_component_1 = require("./app.component");
-var events_list_component_1 = require("./events/components/events-list.component");
-var events_details_component_1 = require("./events/components/events-details.component");
+var task_list_component_1 = require("./task/components/task-list.component");
+var task_details_components_1 = require("./task/components/task-details.components");
 var employee_list_component_1 = require("./employee/components/employee-list.component");
 var employee_details_components_1 = require("./employee/components/employee-details.components");
-var parent_component_1 = require("./parent-child-communication/compononents/parent.component");
-var child_component_1 = require("./parent-child-communication/compononents/child.component");
-var jph_posts_components_1 = require("./jsonplaceholder/components/jph-posts.components");
-var jph_users_components_1 = require("./jsonplaceholder/components/jph-users.components");
+// import { ParentComponent } from "./parent-child-communication/compononents/parent.component";
+// import { ChildComponent } from "./parent-child-communication/compononents/child.component";
+// import { JphPostComponent } from "./jsonplaceholder/components/jph-posts.components";
+// import { JphUserComponent } from "./jsonplaceholder/components/jph-users.components";
 //Pipes
-var first_letter_capital_pipe_1 = require("./events/pipes/first-letter-capital.pipe");
-var filter_by_pipe_1 = require("./events/pipes/filter-by.pipe");
-var start_with_pipe_1 = require("./events/pipes/start-with.pipe");
-var ends_with_pipe_1 = require("./events/pipes/ends-with.pipe");
-var date_with_pipe_1 = require("./events/pipes/date-with.pipe");
+// import { FirstLetterCapitalPipe } from "./events/pipes/first-letter-capital.pipe";
+// import { FilterByPipe } from "./events/pipes/filter-by.pipe";
+// import { StartsWith } from "./events/pipes/start-with.pipe";
+// import { EndsWith } from "./events/pipes/ends-with.pipe";
+// import { DateStartsWith } from "./events/pipes/date-with.pipe";
 //Services
-var events_service_1 = require("./events/services/events.service");
-var jph_posts_service_1 = require("./jsonplaceholder/services/jph.posts.service");
+var task_service_1 = require("./task/services/task.service");
+//import { JphPostsService } from "./jsonplaceholder/services/jph.posts.service";
 var employee_service_1 = require("./employee/services/employee.service");
 //Decorator
 var AppModule = (function () {
@@ -47,10 +47,9 @@ var AppModule = (function () {
 AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule],
-        declarations: [app_component_1.AppComponent, events_list_component_1.EventsListComponent, employee_list_component_1.EmployeeListComponent, events_details_component_1.EventsDetailsComponent,
-            employee_details_components_1.EmployeeDetailsComponent, parent_component_1.ParentComponent, child_component_1.ChildComponent, first_letter_capital_pipe_1.FirstLetterCapitalPipe, filter_by_pipe_1.FilterByPipe,
-            start_with_pipe_1.StartsWith, ends_with_pipe_1.EndsWith, date_with_pipe_1.DateStartsWith, jph_posts_components_1.JphPostComponent, jph_users_components_1.JphUserComponent],
-        providers: [common_1.DatePipe, events_service_1.EventsService, jph_posts_service_1.JphPostsService, employee_service_1.EmployeeService],
+        declarations: [app_component_1.AppComponent, task_details_components_1.TaskDetailsComponent, employee_list_component_1.EmployeeListComponent, task_list_component_1.TaskListComponent,
+            employee_details_components_1.EmployeeDetailsComponent,],
+        providers: [common_1.DatePipe, task_service_1.TaskService, employee_service_1.EmployeeService],
         bootstrap: [app_component_1.AppComponent],
         exports: []
     })

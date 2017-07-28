@@ -1,0 +1,100 @@
+<h2 [innerHTML]="title"></h2>
+
+<form class="form-horizontal" [formGroup]="newemployee.employeeForm" *ngIf="newemployee">
+    <fieldset>
+        <legend>Add employee</legend>
+
+         <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+                <button type="Button" (click)="insertEmployee()" class="btn btn-primary" [disabled]="!newemployee.employeeForm.valid">Save Record</button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputemployeeId" class="col-lg-2 control-label">Id</label>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" id="inputemployeeId" name="inputemployeeId" formControlName="employeeId">
+                <div class="alert alert-danger" *ngIf="newemployee.employeeForm.controls['employeeId'].hasError('required')">Please Enter Event Id</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputemployeeCode" class="col-lg-2 control-label">Code</label>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" id="inputemployeeCode" name="inputemployeeCode" formControlName="employeeCode">
+                <div class="alert alert-danger" *ngIf="newemployee.employeeForm.controls['employeeCode'].hasError('required')">Please Enter Event Code</div>
+                <div class="alert alert-danger" *ngIf="newemployee.employeeForm.controls['employeeCode'].hasError('minlength')">Please Enter Minimin 3 Char</div>
+                <div class="alert alert-danger" *ngIf="newemployee.employeeForm.controls['employeeCode'].hasError('maxlength')">Please Enter Max 5 Char</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputName" class="col-lg-2 control-label">Name</label>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" id="inputName" name="inputName" formControlName="name">
+                <div class="alert alert-danger" *ngIf="newemployee.employeeForm.controls['name'].hasError('required')">Please Enter Event Name</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputaddress" class="col-lg-2 control-label">address</label>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" id="inputaddress" name="inputaddress" formControlName="address">
+                <div class="alert alert-danger" *ngIf="newemployee.employeeForm.controls['address'].hasError('required')">Please Enter Address</div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputcity" class="col-lg-2 control-label">city</label>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" id="inputcity" name="inputcity" formControlName="city">
+                <div class="alert alert-danger" *ngIf="newemployee.employeeForm.controls['city'].hasError('required')">Please Enter city</div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="inputcontact" class="col-lg-2 control-label">Contact</label>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" id="inputcontact" name="inputcontact" formControlName="contact">
+                <div class="alert alert-danger" *ngIf="newemployee.employeeForm.controls['contact'].hasError('required')">Please Enter Contact</div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="inputemail" class="col-lg-2 control-label">Email</label>
+            <div class="col-lg-10">
+                <input type="email" class="form-control" id="inputemail" name="inputemail" formControlName="email">
+                <div class="alert alert-danger" *ngIf="newemployee.employeeForm.controls['email'].hasError('required')">Please Enter Email</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputemail" class="col-lg-2 control-label">Designation</label>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" id="inputdesignation" name="inputdesignation" formControlName="designation">
+                <div class="alert alert-danger" *ngIf="newemployee.employeeForm.controls['designation'].hasError('required')">Please Enter Designation</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputemail" class="col-lg-2 control-label">Rating</label>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" id="inputrating" name="inputrating" formControlName="rating">
+                <div class="alert alert-danger" *ngIf="newemployee.employeeForm.controls['rating'].hasError('required')">Please Enter Rating</div>
+            </div>
+        </div>
+<div class="form-group">
+            <label for="inputemail" class="col-lg-2 control-label">Rating</label>
+            <div class="col-lg-10">
+               
+            </div>
+        </div>
+
+       
+    </fieldset>
+</form>
+
+ 

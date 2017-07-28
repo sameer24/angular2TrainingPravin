@@ -1,32 +1,32 @@
 import { Component } from "@angular/core";
 
-import { Employee } from "../models/employee";
-import { EmployeeService } from "../services/employee.service";
+import { UserStory } from "../models/userstory";
+import { UserStoryService } from "../services/userstory.service";
 
 @Component({
-    selector:'employee-list',
-    templateUrl:'app/employee/views/employee-list.component.html'
+    selector:'userstory-list',
+    templateUrl:'app/userstory/views/userstory-list.component.html'
 })
 
-export class EmployeeListComponent{
-    title:string = 'Employee List 1';
+export class UserStoryListComponent{
+    title:string = 'userstory List 1';
     subTitle:string = 'Published by 1 Synechron';
-    selectedEmployee: Employee;
-    showEmployee(emp:Employee):void{
+    selectedEmployee: UserStory;
+    showEmployee(emp:UserStory):void{
         this.selectedEmployee = emp;
     }
     hideDetail():void{
         this.selectedEmployee = '';
     }
-    constructor(private _EmployeeService:EmployeeService){
+    constructor(private _UserStoryService:UserStoryService){
       //  this.employee = new Employee(1,'Sameer','Kelkar ', 'Job Desc','Address','123456789', new Date(),new Date(),100, 50, 'images/photo.png',10)
-      this._EmployeeService.getAllEmployee().subscribe(
+      this._UserStoryService.getAllUserStory().subscribe(
           data=>{
                 console.log(data);
-                this.employees=data
+                this.userstory=data
             },
             err=>console.log(err),()=>{console.log('completed')});
     }
    
-    employees: Employee[];
+    userstory: UserStory[];
 }

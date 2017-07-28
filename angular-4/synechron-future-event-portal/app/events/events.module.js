@@ -22,6 +22,7 @@ var ends_with_pipe_1 = require("./pipes/ends-with.pipe");
 var date_with_pipe_1 = require("./pipes/date-with.pipe");
 //Services
 var events_service_1 = require("./services/events.service");
+var events_routing_1 = require("./events.routing");
 var EventsModule = (function () {
     function EventsModule() {
     }
@@ -29,7 +30,7 @@ var EventsModule = (function () {
 }());
 EventsModule = __decorate([
     core_1.NgModule({
-        imports: [router_1.RouterModule, common_1.CommonModule, forms_1.FormsModule, forms_1.ReactiveFormsModule],
+        imports: [events_routing_1.eventRouting, router_1.RouterModule, common_1.CommonModule, forms_1.FormsModule, forms_1.ReactiveFormsModule],
         exports: [events_list_component_1.EventsListComponent, new_event_component_1.NewEventComponent],
         declarations: [events_list_component_1.EventsListComponent, events_details_component_1.EventsDetailsComponent, first_letter_capital_pipe_1.FirstLetterCapitalPipe, filter_by_pipe_1.FilterByPipe,
             start_with_pipe_1.StartsWith, ends_with_pipe_1.EndsWith,

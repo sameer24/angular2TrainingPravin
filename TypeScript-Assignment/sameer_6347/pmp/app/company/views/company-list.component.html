@@ -1,0 +1,47 @@
+<h2 [innerText]="title"></h2>
+
+<button class="btn btn-info" routerLink="/newcompany">Add New</button>
+
+<hr>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Company Code</th>
+            <th>Company Name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>Contact</th>
+            <th>Email</th>
+            <th>Details</th>
+            <th>Delete</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td> </td>
+            <td> <input type="text" name="search" class="form-control" [(ngModel)]="searchLetterContains"></td>
+            <td> <input type="text" name="search" class="form-control" [(ngModel)]="searchAddressContains"></td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+        <tr *ngFor="let obj of companies |filterContains:searchLetterContains|filterContains:searchAddressContains">
+            <td><span [innerText]="obj.companyId"></span></td>
+            <td><span [innerText]="obj.name"></span></td>
+            <td><span [innerText]="obj.address"></span></td>
+            <td><span [innerText]="obj.city"></span></td>
+            <td><span [innerText]="obj.contact"></span></td>
+            <td><span [innerText]="obj.email"></span></td>
+            <td><button class="btn btn-info" routerLink="/company/{{obj._id}}">Details</button></td>
+             <td><button class="btn btn-info" (click)="delete(obj._id)">Delete</button></td>
+             <td><button class="btn btn-info" routerLink="/newcompany/{{obj._id}}">Edit</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<!--
+<div *ngIf="id">
+    <company-details [id]="id"></company-details>
+</div>-->

@@ -13,16 +13,16 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let employee of employees">
-            <td><span [innerText]="employee.EmployeeId"></span></td>
-            <td><span [innerText]="employee.Name|uppercase"></span></td>
-            <td><span [innerText]="employee.Address|lowercase"></span></td>
-            <td><span [innerText]="employee.City|uppercase"></span></td>
-            <td><span [innerText]="employee.City"></span></td>
-            <td><button class="btn btn-success" (click)="showEmployee(employee)">Show Details</button></td>
+        <tr *ngFor="let task of tasks">
+            <td><span [innerText]="task.AssignedToEmp"></span></td>
+            <td><span [innerText]="task.Description|uppercase"></span></td>
+            <td><span [innerText]="task.TaskID"></span></td>
+            <td><span [innerText]="task.Title|uppercase"></span></td>
+            <td><span [innerText]="task.UserStoryId"></span></td>
+            <td><button class="btn btn-success" (click)="showTask(task)">Show Details</button></td>
         </tr>
     </tbody>
 </table>
-<div *ngIf="selectedEmployee">
-    <employee-detail [employee]="selectedEmployee"></employee-detail>
+<div *ngIf="selectedTask">
+    <task-detail [task]="selectedTask"></task-detail>
 </div>

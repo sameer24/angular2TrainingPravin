@@ -4,17 +4,17 @@ import { Http } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 
-import { Employee } from "../models/employee";
+import { Bug } from "../models/bug";
 
 @Injectable()
 
-export class EmployeeService{
+export class BugService{
     constructor(private _http:Http){
 
     }
-    getAllEmployee():Observable<Employee[]> {
-       return this._http.get("http://localhost:8005/employees").map(res => res.json());
+    getAllBug():Observable<Bug[]> {
+       return this._http.get("http://localhost:8005/bug").map(res => res.json());
     }
 
-    private employee: Employee[];
+    private bug: Bug[];
 }

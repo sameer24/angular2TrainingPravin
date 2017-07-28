@@ -1,46 +1,26 @@
-<h1>{{title}}{{employee.Name}}</h1>
+<h1>{{title}}{{task.Name}}</h1>
 <hr>
 <button (click)="showDetail=false">Back</button>
 <table class="table" *ngIf="showDetail">
     <tr>
-        <th>Employee ID</th>
-        <td><span [innerText]="employee.EmployeeId"></span></td>
+        <th>AssignedToEmp ID</th>
+        <td><span [innerText]="task.AssignedToEmp"></span></td>
     </tr>
     <tr>
-        <th>Employee Name</th>
-        <td><span [innerText]="employee.Name | lowercase"></span></td>
+        <th>Description Name</th>
+        <td><span [innerText]="task.Description | lowercase"></span></td>
     </tr>
     <tr>
-        <th>Address</th>
-        <td><span [innerText]="employee.Address|uppercase"></span></td>
+        <th>UserStoryId</th>
+        <td><span [innerText]="task.UserStoryId|uppercase"></span></td>
+    </tr>
+
+    <tr>
+        <th>TaskID</th>
+        <td><span [innerText]="task.TaskID"></span></td>
     </tr>
     <tr>
-        <th>City</th>
-        <td><span [innerText]="employee.City|lowercase"></span></td>
-    </tr>
-    <tr>
-        <th>ContactNo</th>
-        <td><span [innerText]="employee.ContactNo"></span></td>
-    </tr>
-    <tr>
-        <th>Email</th>
-        <td><span [innerText]="employee.Email"></span></td>
-    </tr>
- <!--   <tr>
-        <th>Rating</th>
-        <td>
-            <div class="progress progress-striped active">
-                <div class="progress-bar" [style.width]="(employee.rating*10)+'%'" 
-                [title]="employee.rating*10+'%'"
-                >{{employee.rating*10+'%'}}</div>
-                
-            </div>
-            </td>
-    </tr>
-    <tr>
-        <th>Photo</th>
-        <td>
-            <img [src]="employee.photo" alt=""  class="img-circle" [title]="employee.employeeFName">
-        </td>
-    </tr>-->    
+        <th>Status</th>
+        <td><span [innerText]="task.Status"></span></td>
+    </tr>  
 </table>

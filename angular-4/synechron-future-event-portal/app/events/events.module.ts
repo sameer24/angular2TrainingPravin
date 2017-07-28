@@ -19,8 +19,11 @@ import { DateStartsWith } from "./pipes/date-with.pipe";
 //Services
 import { EventsService } from "./services/events.service";
 
+import { eventRouting } from "./events.routing";
+
+
 @NgModule({
-    imports: [RouterModule,CommonModule,FormsModule, ReactiveFormsModule],
+    imports: [eventRouting,RouterModule,CommonModule,FormsModule, ReactiveFormsModule],
     exports: [EventsListComponent, NewEventComponent],
     declarations: [EventsListComponent, EventsDetailsComponent, FirstLetterCapitalPipe, FilterByPipe,
         StartsWith, EndsWith,
