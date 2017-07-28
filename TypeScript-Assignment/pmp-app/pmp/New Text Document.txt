@@ -8,7 +8,7 @@ src
 		components	
 			employee-list.component.ts
 			employee-detail.ts
-		css
+		css 
 			employee.css
 		views
 		
